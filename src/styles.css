@@ -11,7 +11,7 @@ body {
     display: grid;
     margin-top: 2rem;
     grid-template-columns: repeat(4,6rem);
-    grid-template-rows: minmax(7rem,auto) repeat(5,6rem);
+    grid-template-rows: minmax(7rem,auto) repeat(6,6rem);
     justify-content: center;
 }
 
@@ -42,6 +42,10 @@ body {
 
 .span-two {
     grid-column: span 2;
+}
+
+.span-three {
+    grid-column: span 3;
 }
 
 .output {

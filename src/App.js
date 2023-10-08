@@ -8,7 +8,8 @@ export const ACTION = {
   CLEAR: 'clear',
   DELETE_DIGIT: 'delete-digit',
   CHOOSE_OPERATION: 'choose-operation',
-  RESULT: 'result'
+  RESULT: 'result',
+  RANDOM: 'random'
 }
 
 function reducer(state, {type, payload}) {
@@ -21,7 +22,7 @@ function reducer(state, {type, payload}) {
           currentOperand: null
         }
       }
-      if (state.currentOperand === null) {
+      if (state.currentOperand == null) {
         return state;
       }
       if (state.currentOperand.length === 1) {
@@ -142,6 +143,9 @@ function result({currentOperand, previousOperand, operation}) {
     case "x":
       evaluation = prev * current;
       break;
+    case "%":
+      evaluation = prev % current;
+      break;
     default:
       break;
   }
@@ -177,6 +181,8 @@ function App() {
     <NumberButton digit="." dispatch={dispatch} />
     <NumberButton digit="0" dispatch={dispatch} />
     <button className="span-two" onClick={() => dispatch({type: ACTION.RESULT})}>=</button>
+    <OperandButton operation="%" dispatch={dispatch} />
+    <button className="span-three"></button>
   </div>
   )
 }
